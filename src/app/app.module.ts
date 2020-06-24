@@ -22,13 +22,10 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     JewelryListComponent,
     JewelryDetailComponent,
     JewelryItemComponent,
-    ShoppingListComponent
+    ShoppingListComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
