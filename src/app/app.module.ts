@@ -11,6 +11,7 @@ import { JewelryListComponent } from './jewelry/jewelry-list/jewelry-list.compon
 import { JewelryDetailComponent } from './jewelry/jewelry-detail/jewelry-detail.component';
 import { JewelryItemComponent } from './jewelry/jewelry-list/jewelry-item/jewelry-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     JewelryDetailComponent,
     JewelryItemComponent,
     ShoppingListComponent,
+    DropdownDirective,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
