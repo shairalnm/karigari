@@ -9,7 +9,7 @@
         <li class="nav-item dropdown" appDropdown>
           <a
             class="nav-link dropdown-toggle"
-            href="#"
+            routerLink="/jewelry"
             style="cursor: pointer;"
             id="navbardrop"
             data-toggle="dropdown"
@@ -27,16 +27,29 @@
           </div>
         </li>
         <li>
-          <a routerLink="/shopping-list" class="nav-link">Shopping List</a>
+          <a
+            routerLink="/shopping-list"
+            class="nav-link"
+            style="cursor: pointer;"
+            >Shopping List</a
+          >
         </li>
-        <li><a routerLink="/about" class="nav-link">About</a></li>
-        <li><a routerLink="/contact" class="nav-link">Contact</a></li>
+        <li>
+          <a routerLink="/about" class="nav-link" style="cursor: pointer;"
+            >About</a
+          >
+        </li>
+        <li>
+          <a routerLink="/contact" class="nav-link" style="cursor: pointer;"
+            >Contact</a
+          >
+        </li>
       </ul>
     </div>
 
-    <form class="form-inline">
+    <!-- <form class="form-inline">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" />
       <button class="btn" type="submit">Search</button>
-    </form>
+    </form> -->
   </div>
 </nav>
