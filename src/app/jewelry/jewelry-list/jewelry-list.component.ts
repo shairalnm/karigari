@@ -11,7 +11,7 @@ export class JewelryListComponent implements OnInit {
     new Jewelry(
       'A Gold Ring',
       'A beautiful gold ring with leaflets in the edge',
-      'https://littletreasury.com/product/simon-g-18k-rose-gold-leaf-design-ring/',
+      'http://pngimg.com/uploads/ring/ring_PNG38.png',
       '1111',
       '4444',
       '4444',
@@ -21,7 +21,7 @@ export class JewelryListComponent implements OnInit {
     new Jewelry(
       'A Gold Ring',
       'A beautiful gold ring with leaflets in the edge',
-      'https://littletreasury.com/product/simon-g-18k-rose-gold-leaf-design-ring/',
+      'http://pngimg.com/uploads/ring/ring_PNG38.png',
       '1111',
       '4444',
       '4444',
