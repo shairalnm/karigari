@@ -13,6 +13,9 @@ import { JewelryDetailComponent } from './jewelry/jewelry-detail/jewelry-detail.
 import { JewelryItemComponent } from './jewelry/jewelry-list/jewelry-item/jewelry-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,14 @@ import { DropdownDirective } from './shared/dropdown.directive';
     ShoppingListComponent,
     DropdownDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatSliderModule,
+    MatGridListModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

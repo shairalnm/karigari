@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Jewelry } from '../../jewelry.model';
+
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 
 @Component({
   selector: 'app-jewelry-item',
   templateUrl: './jewelry-item.component.html',
-  styleUrls: ['./jewelry-item.component.css']
+  styleUrls: ['./jewelry-item.component.css'],
 })
 export class JewelryItemComponent implements OnInit {
+  @Input() jewelry: Jewelry;
+  @Input() index: number;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

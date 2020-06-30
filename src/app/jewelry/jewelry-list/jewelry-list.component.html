@@ -1,5 +1,29 @@
 <div class="row">
-  <div class="col-xs-12">
-<!--  -->
+  <div class="col-lg-12">
+    <label>Items:</label>
+    <mat-grid-list cols="2" rowHeight="100px">
+      <mat-grid-tile *ngFor="let jewelry of jewelry">
+        {{ jewelry.name }}
+        {{ jewelry.description }}
+        <div class="row">
+          <div class="col-xs-12">
+            <img [src]="jewelry.imagePath" class="img-responsive" />
+          </div>
+        </div>
+
+        $
+        {{ jewelry.totalPrice }}
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
 </div>
+<hr />
+<!-- <div class="row">
+  <div class="col-xs-12">
+    <app-jewelry-item
+      *ngFor="let jewelryEl of jewelry; let i = index"
+      [jewelry]="jewelryEl"
+      [index]="i"
+    ></app-jewelry-item>
+  </div>
+</div> -->
