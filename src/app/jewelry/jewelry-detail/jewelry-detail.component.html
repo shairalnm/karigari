@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>Jewelry Name</h1>
+    <h1>{{ jewelry.name }}</h1>
   </div>
 </div>
 <div class="row">
@@ -19,11 +19,31 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    Description
+    {{ jewelry.description }}
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    Details
+    {{ jewelry.weight }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group" appDropdown>
+      <button type="button" class="btn btn-primary dropdown-toggle">
+        Manage Recipe <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#" style="cursor: pointer;">To Shopping List</a>
+        </li>
+        <li>
+          <a style="cursor: pointer;" href="#">Edit Recipe</a>
+        </li>
+        <li>
+          <a style="cursor: pointer;" href="#">Delete Recipe</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

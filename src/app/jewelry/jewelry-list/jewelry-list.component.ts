@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Jewelry } from '../jewelry.model';
+import { Subscription } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+import { JewelryService } from '../jewelry.service';
 
 @Component({
   selector: 'app-jewelry-list',
@@ -29,7 +32,25 @@ export class JewelryListComponent implements OnInit {
       '1.113'
     ),
   ];
-  constructor() {}
 
-  ngOnInit(): void {}
+  subscription: Subscription;
+
+  constructor() /* private jewelryService: JewelryService,
+    private router: Router,
+    private route: ActivatedRoute */
+  {}
+
+  ngOnInit() {
+    /* this.subscription = this.jewelryService.jewelryChanged.subscribe(
+      (jewelry: Jewelry[]) => {
+        this.jewelry = jewelry;
+      }
+    );
+    this.jewelry = this.jewelryService.getJewelrys(); */
+    console.log('jewelry list component initialized');
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

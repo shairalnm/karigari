@@ -1,13 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Jewelry } from '../../jewelry.model';
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
-
 @Component({
   selector: 'app-jewelry-item',
   templateUrl: './jewelry-item.component.html',

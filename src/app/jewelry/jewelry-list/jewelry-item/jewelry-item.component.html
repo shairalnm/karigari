@@ -4,16 +4,13 @@
   routerLinkActive="active"
   class="list-group-item clearfix"
 >
+  <img
+    [src]="jewelry.imagePath"
+    alt="{{ jewelry.name }}"
+    class="rounded float-right mx-auto w-50 h-50 p-3 d-block img-fluid"
+  />
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ jewelry.name }}</h4>
     <p class="list-group-item-text">{{ jewelry.description }}</p>
   </div>
-  <span class="pull-right">
-    <img
-      [src]="jewelry.imagePath"
-      alt="{{ jewelry.name }}"
-      class="img-responsive"
-      style="max-height: 50px;"
-    />
-  </span>
 </a>
