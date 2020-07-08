@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Jewelry } from './jewelry.model';
+import { JewelryService } from './jewelry.service';
 
 @Component({
   selector: 'app-jewelry',
   templateUrl: './jewelry.component.html',
-  styleUrls: ['./jewelry.component.css']
+  styleUrls: ['./jewelry.component.css'],
+  providers: [JewelryService],
 })
 export class JewelryComponent implements OnInit {
+  selectedJewelry: Jewelry;
 
-  constructor() { }
+  constructor(private jewelryService: JewelryService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log('jewelry component called');
+    this.jewelryService.jewelrySelected.subscribe((jewelry: Jewelry) => {
+      this.selectedJewelry = jewelry;
+    });
   }
-
 }

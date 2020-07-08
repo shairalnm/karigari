@@ -1,5 +1,8 @@
 <div class="row">
   <div class="col-xs-12">
-<!--  -->
+    <app-jewelry-item
+      *ngFor="let jewelryEl of jewelrys"
+      [jewelry]="jewelryEl"
+    ></app-jewelry-item>
   </div>
 </div>

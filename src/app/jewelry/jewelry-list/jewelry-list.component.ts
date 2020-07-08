@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Jewelry } from '../jewelry.model';
+import { JewelryService } from '../jewelry.service';
 
 @Component({
   selector: 'app-jewelry-list',
@@ -7,29 +8,12 @@ import { Jewelry } from '../jewelry.model';
   styleUrls: ['./jewelry-list.component.css'],
 })
 export class JewelryListComponent implements OnInit {
-  jewelry: Jewelry[] = [
-    new Jewelry(
-      'A Gold Ring',
-      'A beautiful gold ring with leaflets in the edge',
-      'http://pngimg.com/uploads/ring/ring_PNG38.png',
-      '1111',
-      '4444',
-      '4444',
-      'Gold',
-      '1.113'
-    ),
-    new Jewelry(
-      'A Gold Ring',
-      'A beautiful gold ring with leaflets in the edge',
-      'http://pngimg.com/uploads/ring/ring_PNG38.png',
-      '1111',
-      '4444',
-      '4444',
-      'Gold',
-      '1.113'
-    ),
-  ];
-  constructor() {}
+  jewelrys: Jewelry[];
+  constructor(private jewelryService: JewelryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    console.log('jewelry list called');
+
+    this.jewelrys = this.jewelryService.getJewelrys();
+  }
 }
