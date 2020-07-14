@@ -1,4 +1,9 @@
-<a href="#" class="list-group-item clearfix" (click)="onSelected()">
+<a
+  style="cursor: pointer;"
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class="list-group-item clearfix"
+>
   <img
     [src]="jewelry.imagePath"
     alt="{{ jewelry.name }}"

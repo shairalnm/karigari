@@ -9,13 +9,14 @@ import { JewelryService } from '../../jewelry.service';
 })
 export class JewelryItemComponent implements OnInit {
   @Input() jewelry: Jewelry;
+  @Input() index: number;
 
-  constructor(private jewelryService: JewelryService) {}
+  constructor() {}
 
   ngOnInit() {
     console.log('jewelry item called');
   }
-  onSelected() {
+  /* onSelected() {
     this.jewelryService.jewelrySelected.emit(this.jewelry);
-  }
+  } */
 }

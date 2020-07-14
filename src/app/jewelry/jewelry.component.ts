@@ -15,7 +15,7 @@ export class JewelryComponent implements OnInit {
 
   ngOnInit() {
     console.log('jewelry component called');
-    this.jewelryService.jewelrySelected.subscribe((jewelry: Jewelry) => {
+    this.jewelryService.jewelryChanged.subscribe((jewelry: Jewelry) => {
       this.selectedJewelry = jewelry;
     });
   }

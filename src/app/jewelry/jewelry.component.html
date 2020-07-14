@@ -3,12 +3,13 @@
     <app-jewelry-list></app-jewelry-list>
   </div>
   <div class="col-md-5">
-    <app-jewelry-detail
+    <<!-- app-jewelry-detail
       *ngIf="selectedJewelry; else infoText"
       [jewelry]="selectedJewelry"
     ></app-jewelry-detail>
     <ng-template #infoText>
       <p>Please select a jewelry!</p>
-    </ng-template>
+    </ng-template> -->
+    <router-outlet></router-outlet>
   </div>
 </div>

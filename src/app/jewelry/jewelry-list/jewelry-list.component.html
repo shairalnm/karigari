@@ -1,8 +1,9 @@
 <div class="row">
   <div class="col-xs-12">
     <app-jewelry-item
-      *ngFor="let jewelryEl of jewelrys"
-      [jewelry]="jewelryEl"
+      *ngFor="let jewelryItem of jewelrys; let i = index"
+      [jewelry]="jewelryItem"
+      [index]="i"
     ></app-jewelry-item>
   </div>
 </div>
