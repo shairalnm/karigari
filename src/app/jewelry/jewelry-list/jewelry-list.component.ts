@@ -1,35 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 import { Jewelry } from '../jewelry.model';
+import { JewelryService } from '../jewelry.service';
 
 @Component({
   selector: 'app-jewelry-list',
   templateUrl: './jewelry-list.component.html',
   styleUrls: ['./jewelry-list.component.css'],
 })
-export class JewelryListComponent implements OnInit {
-  jewelry: Jewelry[] = [
-    new Jewelry(
-      'A Gold Ring',
-      'A beautiful gold ring with leaflets in the edge',
-      'http://pngimg.com/uploads/ring/ring_PNG38.png',
-      '1111',
-      '4444',
-      '4444',
-      'Gold',
-      '1.113'
-    ),
-    new Jewelry(
-      'A Gold Ring',
-      'A beautiful gold ring with leaflets in the edge',
-      'http://pngimg.com/uploads/ring/ring_PNG38.png',
-      '1111',
-      '4444',
-      '4444',
-      'Gold',
-      '1.113'
-    ),
-  ];
-  constructor() {}
+export class JewelryListComponent implements OnInit, OnDestroy {
+  jewelrys: Jewelry[];
+  subscription: Subscription;
 
-  ngOnInit(): void {}
+  constructor(
+    private jewelryService: JewelryService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    console.log('jewelry list called');
+
+    /* this.jewelrys = this.jewelryService.getJewelrys(); */
+    this.subscription = this.jewelryService.jewelryChanged.subscribe(
+      (jewelry: Jewelry[]) => {
+        this.jewelrys = jewelry;
+      }
+    );
+    this.jewelrys = this.jewelryService.getJewelrys();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
