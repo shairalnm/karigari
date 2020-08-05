@@ -10,51 +10,47 @@
           <a
             class="nav-link dropdown-toggle"
             routerLink="/jewelry"
-            style="cursor: pointer;"
+            role="button"
             id="navbardrop"
             data-toggle="dropdown"
           >
             Jewelry
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" style="cursor: pointer;" href="#">Gold</a>
-            <a class="dropdown-item" style="cursor: pointer;" href="#"
+            <a class="dropdown-item" routerLink="/">Gold</a>
+            <a class="dropdown-item"  routerLink="/"
               >Silver</a
             >
-            <a class="dropdown-item" style="cursor: pointer;" href="#"
+            <a class="dropdown-item" routerLink="/"
               >Imitation</a
             >
           </div>
         </li>
         <li>
-          <a
-            routerLink="/shopping-list"
-            class="nav-link"
-            style="cursor: pointer;"
-            >Shopping List</a
-          >
+          <a routerLink="/shopping-list" class="nav-link">Shopping List</a>
         </li>
-        <li>
-          <a routerLink="/about" class="nav-link" style="cursor: pointer;"
-            >About</a
-          >
-        </li>
-        <li>
-          <a routerLink="/contact" class="nav-link" style="cursor: pointer;"
-            >Contact</a
-          >
-        </li>
-        <li>
-          <a class="nav-link" style="cursor: pointer;" (click)="onSaveData()"
-            >Save Data</a
-          >
+        <li><a  (click)="onSaveData()">Save Data</a></li>
+        <li><a routerLink="/about" class="nav-link">About</a></li>
+        <li><a routerLink="/contact" class="nav-link">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item dropdown" appDropdown>
+          <a 
+            class="nav-link dropdown-toggle" 
+            role="button"
+            >Manage 
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a  (click)="onSaveData()">Save Data</a></li>
+            <li><a  (click)="onFetchData()">Fetch Data</a></li>
+          </ul>
         </li>
       </ul>
     </div>
 
-    <!-- <form class="form-inline">
+    <form class="form-inline">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" />
       <button class="btn" type="submit">Search</button>
-    </form> -->
+    </form>
   </div>
 </nav>

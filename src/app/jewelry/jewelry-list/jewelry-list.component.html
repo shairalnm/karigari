@@ -1,9 +1,15 @@
 <div class="row">
   <div class="col-xs-12">
-    <app-jewelry-item
-      *ngFor="let jewelryItem of jewelrys; let i = index"
-      [jewelry]="jewelryItem"
-      [index]="i"
-    ></app-jewelry-item>
+    <button class="btn btn-success" (click)="onNewJewelry()">New Jewelry</button>
   </div>
 </div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-jewelry-item
+      *ngFor="let jewelryElement of jewelry; let i = index"
+      [jewelry]="jewelryElement"
+      [index]="i"></app-jewelry-item>
+  </div>
+</div>
+

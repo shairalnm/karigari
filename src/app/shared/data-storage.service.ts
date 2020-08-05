@@ -7,34 +7,37 @@ import { JewelryService } from '../jewelry/jewelry.service';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
-  constructor(
-    private http: HttpClient,
-    private jewelryService: JewelryService
-  ) {}
+  constructor(private http: HttpClient, private jewelryService: JewelryService) {}
 
-  storeJewelrys() {
+  storeJewelry() {
     const jewelry = this.jewelryService.getJewelrys();
-
     this.http
-      .put('https://karigari-90b30.firebaseio.com/jewelry.json', jewelry)
-      .subscribe((response) => {
+      .put(
+        'https://karigari-90b30.firebaseio.com/recipes.json',
+        jewelry
+      )
+      .subscribe(response => {
         console.log(response);
       });
   }
 
-  fetchjewelrys() {
-    /* return this.http
-      .get<Jewelry[]>('https://karigari-90b30.firebaseio.com/jewelry.json')
+  fetchJewelry() {
+    return this.http
+      .get<Jewelry[]>(
+        'https://karigari-90b30.firebaseio.com/recipes.json'
+      )
       .pipe(
-        map((jewelry) => {
-          return jewelry.map((jewelry) => {
+        map(jewelry => {
+          return jewelry.map(jewelry => {
             return {
               ...jewelry,
+              item: jewelry.item ? jewelry.item : []
             };
           });
-        })
-        /* tap((jewelry) => {
+        }),
+        /* tap(jewelry => {
           this.jewelryService.setJewelry(jewelry);
         }) */
+      )
   }
 }

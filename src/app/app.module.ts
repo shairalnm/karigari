@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,12 @@ import { JewelryDetailComponent } from './jewelry/jewelry-detail/jewelry-detail.
 import { JewelryItemComponent } from './jewelry/jewelry-list/jewelry-item/jewelry-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { JewelryEditComponent } from './jewelry/jewelry-edit/jewelry-edit.component';
+import { JewelryStartComponent } from './jewelry/jewelry-start/jewelry-start.component';
+
+import { ShoppingListService } from "./shopping-list/shopping-list.service";
+import { JewelryService } from "./jewelry/jewelry.service";
+
 
 @NgModule({
   declarations: [
@@ -27,15 +33,15 @@ import { DropdownDirective } from './shared/dropdown.directive';
     JewelryItemComponent,
     ShoppingListComponent,
     DropdownDirective,
+    JewelryEditComponent,
+    JewelryStartComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
+  imports: [ BrowserModule,
     FormsModule,
-  ],
-  providers: [],
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule],
+  providers: [ShoppingListService, JewelryService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
