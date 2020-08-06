@@ -96,7 +96,7 @@ export class JewelryEditComponent implements OnInit {
       name: new FormControl(jewelryName, Validators.required),
       imagePath: new FormControl(jewelryImagePath, Validators.required),
       description: new FormControl(jewelryDescription, Validators.required),
-      ingredients: jewelryItem
+      item: jewelryItem
     });
   }
 }

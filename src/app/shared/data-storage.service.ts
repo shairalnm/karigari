@@ -13,7 +13,7 @@ export class DataStorageService {
     const jewelry = this.jewelryService.getJewelrys();
     this.http
       .put(
-        'https://karigari-90b30.firebaseio.com/recipes.json',
+        'https://karigari-90b30.firebaseio.com/jewelry.json',
         jewelry
       )
       .subscribe(response => {
@@ -24,7 +24,7 @@ export class DataStorageService {
   fetchJewelry() {
     return this.http
       .get<Jewelry[]>(
-        'https://karigari-90b30.firebaseio.com/recipes.json'
+        'https://karigari-90b30.firebaseio.com/jewelry.json'
       )
       .pipe(
         map(jewelry => {
