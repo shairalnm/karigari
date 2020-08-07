@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,9 +17,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { JewelryEditComponent } from './jewelry/jewelry-edit/jewelry-edit.component';
 import { JewelryStartComponent } from './jewelry/jewelry-start/jewelry-start.component';
 
-import { ShoppingListService } from "./shopping-list/shopping-list.service";
-import { JewelryService } from "./jewelry/jewelry.service";
-
+import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { JewelryService } from './jewelry/jewelry.service';
+import { ContactService } from '../app/contact/contact.service';
 
 @NgModule({
   declarations: [
@@ -36,12 +36,14 @@ import { JewelryService } from "./jewelry/jewelry.service";
     JewelryEditComponent,
     JewelryStartComponent,
   ],
-  imports: [ BrowserModule,
+  imports: [
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule],
-  providers: [ShoppingListService, JewelryService],
+    AppRoutingModule,
+  ],
+  providers: [ShoppingListService, JewelryService, ContactService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
