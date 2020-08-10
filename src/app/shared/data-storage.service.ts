@@ -34,10 +34,11 @@ export class DataStorageService {
               item: jewelry.item ? jewelry.item : [],
             };
           });
-        })
-        /* tap(jewelry => {
+        }),
+        tap((jewelry) => {
           this.jewelryService.setJewelry(jewelry);
-        }) */
+          console.log('fetch jewelry' + jewelry);
+        })
       );
   }
   storeContact() {

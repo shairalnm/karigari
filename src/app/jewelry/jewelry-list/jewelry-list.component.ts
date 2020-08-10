@@ -11,27 +11,28 @@ import { JewelryService } from '../jewelry.service';
   styleUrls: ['./jewelry-list.component.css'],
 })
 export class JewelryListComponent implements OnInit {
-  
   jewelry: Jewelry[];
   subscription: Subscription;
 
-  constructor(private jewelryService: JewelryService,
-              private router: Router,
-              private route: ActivatedRoute) {
-  }
+  constructor(
+    private jewelryService: JewelryService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.subscription = this.jewelryService.jewelryChanged
-      .subscribe(
-        (jewelry: Jewelry[]) => {
-          this.jewelry = jewelry;
-        }
-      );
+    this.subscription = this.jewelryService.jewelryChanged.subscribe(
+      (jewelry: Jewelry[]) => {
+        this.jewelry = jewelry;
+      }
+    );
     this.jewelry = this.jewelryService.getJewelrys();
   }
 
   onNewJewelry() {
-    this.router.navigate(['new'], {relativeTo: this.route});
+    console.log('new jewelry button clicked');
+
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 
   ngOnDestroy() {

@@ -1,9 +1,13 @@
-<div class="row">
-  <div class="col-md-5">
-    <app-jewelry-list></app-jewelry-list>
+<div class="container">
+  <div class="row m-5">
+    <app-carousel></app-carousel>
   </div>
-  <div class="col-md-7">
-    <!-- <app-jewelry-detail></app-jewelry-detail> -->
-    <router-outlet></router-outlet>
+  <div class="row m-5">
+    <div class="col">
+      <app-jewelry-list></app-jewelry-list>
+    </div>
+    <div class="col-md-5">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

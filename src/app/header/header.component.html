@@ -6,44 +6,39 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="nav-item dropdown" appDropdown>
-          <a
-            class="nav-link dropdown-toggle"
-            routerLink="/jewelry"
-            role="button"
-            id="navbardrop"
-            data-toggle="dropdown"
-          >
-            Jewelry
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" routerLink="/">Gold</a>
-            <a class="dropdown-item"  routerLink="/"
-              >Silver</a
+        <li>
+          <div ngbDropdown class="d-inline-block">
+            <button
+              routerLink="/jewelry"
+              class="btn nav-link"
+              id="dropdownBasic1"
+              ngbDropdownToggle
             >
-            <a class="dropdown-item" routerLink="/"
-              >Imitation</a
-            >
+              Jewelry
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <a ngbDropdownItem>Gold</a>
+              <a ngbDropdownItem>Silver</a>
+              <a ngbDropdownItem>Imitation</a>
+            </div>
           </div>
         </li>
+
         <li>
           <a routerLink="/shopping-list" class="nav-link">Shopping List</a>
         </li>
-        <li><a  (click)="onSaveData()">Save Data</a></li>
         <li><a routerLink="/about" class="nav-link">About</a></li>
         <li><a routerLink="/contact" class="nav-link">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item dropdown" appDropdown>
-          <a 
-            class="nav-link dropdown-toggle" 
-            role="button"
-            >Manage 
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a  (click)="onSaveData()">Save Data</a></li>
-            <li><a  (click)="onFetchData()">Fetch Data</a></li>
-          </ul>
+        <li>
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn nav-link" id="dropdownBasic2" ngbDropdownToggle>
+              Manage
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <a ngbDropdownItem (click)="onSaveData()">Save</a>
+              <a ngbDropdownItem (click)="onFetchData()">Fetch</a>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -54,3 +49,7 @@
     </form>
   </div>
 </nav>
+
+<div class="row">
+  <div class="col"></div>
+</div>

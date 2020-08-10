@@ -1,45 +1,29 @@
 <div class="row">
   <div class="col-xs-12">
-    <img 
-     [src]="jewelry.imagePath"
-     alt="{{jewelry.name}}" 
-     class="img-responsive" />
+    <img
+      [src]="jewelry.imagePath"
+      alt="{{ jewelry.name }}"
+      class="img-responsive"
+    />
   </div>
 </div>
 <div class="row">
-  <div class="col-md-2">
-    <h1>{{jewelry.name}}</h1>
+  <div class="col-xs-10">
+    <h1>{{ jewelry.name }}</h1>
   </div>
-  <div class="col-md-2">
-    <div
-      class="btn-group"
-      appDropdown>
-      <button
-        type="button"
-        class="btn btn-primary dropdown-toggle">
-        Manage Jewelry <span class="caret"></span>
+</div>
+<div class="row">
+  <div class="col-xs-10">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn nav-link" id="dropdownBasic2" ngbDropdownToggle>
+        Manage
       </button>
-      <ul class="dropdown-menu">
-        <li><a (click)="onAddToShoppingList()" >To Shopping List</a></li>
-        <li><a (click)="onEditJewelry()">Edit Recipe</a></li>
-        <li><a (click)="onDeleteJewelry()">Delete Recipe</a></li>
-      </ul>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <a ngbDropdownItem (click)="onAddToShoppingList()"
+          >Add to Shopping List</a
+        >
+        <a ngbDropdownItem>Edit the jewelry</a>
+      </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 p-2">
-    {{jewelry.description}}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 p-4">
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let item of jewelry.item">
-        {{ item.name }} - {{ item.amount }}
-      </li>
-    </ul>
   </div>
 </div>
