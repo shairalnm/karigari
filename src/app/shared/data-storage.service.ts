@@ -4,37 +4,45 @@ import { map, tap } from 'rxjs/operators';
 
 import { Jewelry } from '../jewelry/jewelry.model';
 import { JewelryService } from '../jewelry/jewelry.service';
+import { ContactService } from '../contact/contact.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
   constructor(
     private http: HttpClient,
-    private jewelryService: JewelryService
+    private jewelryService: JewelryService,
+    private contactService: ContactService
   ) {}
 
-  storeJewelrys() {
+  storeJewelry() {
     const jewelry = this.jewelryService.getJewelrys();
-
     this.http
-      .put('https://karigari-90b30.firebaseio.com/jewelry.json', jewelry)
-      .subscribe((response) => {
-        console.log(response);
-      });
+      .put(environment.firebaseJewelryDatabaseLink, jewelry)
+      .subscribe((response) => {});
   }
 
-  fetchjewelrys() {
-    /* return this.http
-      .get<Jewelry[]>('https://karigari-90b30.firebaseio.com/jewelry.json')
+  fetchJewelry() {
+    return this.http
+      .get<Jewelry[]>(environment.firebaseJewelryDatabaseLink)
       .pipe(
         map((jewelry) => {
           return jewelry.map((jewelry) => {
             return {
               ...jewelry,
+              item: jewelry.item ? jewelry.item : [],
             };
           });
-        })
-        /* tap((jewelry) => {
+        }),
+        tap((jewelry) => {
           this.jewelryService.setJewelry(jewelry);
-        }) */
+        })
+      );
+  }
+  storeContact() {
+    const contact = this.contactService.getContact();
+    this.http
+      .put(environment.firebaseContactDatabaseLink, contact)
+      .subscribe((response) => {});
   }
 }

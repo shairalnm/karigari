@@ -1,38 +1,29 @@
 <div class="row">
   <div class="col-xs-12">
+    <img
+      [src]="jewelry.imagePath"
+      alt="{{ jewelry.name }}"
+      class="img-responsive"
+    />
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-10">
     <h1>{{ jewelry.name }}</h1>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-    <img
-      [src]="jewelry.imagePath"
-      alt="{{ jewelry.name }}"
-      class="img-responsive mw-100 mh-100"
-    />
-  </div>
-</div>
-
-<!-- <div class="row">
-  <div class="col-xs-12">
-    <div class="btn-group" appDropdown>
-      <button type="button" class="btn btn-primary dropdown-toggle">
-        Manage Jewelry <span class="caret"></span>
+  <div class="col-xs-10">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn nav-link" id="dropdownBasic2" ngbDropdownToggle>
+        Manage
       </button>
-      <ul class="dropdown-menu">
-        <li>
-          <a (click)="onAddToShoppingList()"
-            >To Shopping List</a
-          >
-        </li>
-        <li><a href="#">Edit Recipe</a></li>
-        <li><a href="#">Delete Recipe</a></li>
-      </ul>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <a ngbDropdownItem (click)="onAddToShoppingList()"
+          >Add to Shopping List</a
+        >
+        <a ngbDropdownItem (click)="onEditJewelry()">Edit the jewelry</a>
+      </div>
     </div>
-  </div>
-</div> -->
-<div class="row">
-  <div class="col-xs-12">
-    {{ jewelry.description }}
   </div>
 </div>

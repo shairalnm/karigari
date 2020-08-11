@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Jewelry } from '../jewelry.model';
 import { JewelryService } from '../jewelry.service';
@@ -10,8 +10,8 @@ import { JewelryService } from '../jewelry.service';
   templateUrl: './jewelry-list.component.html',
   styleUrls: ['./jewelry-list.component.css'],
 })
-export class JewelryListComponent implements OnInit, OnDestroy {
-  jewelrys: Jewelry[];
+export class JewelryListComponent implements OnInit {
+  jewelry: Jewelry[];
   subscription: Subscription;
 
   constructor(
@@ -21,15 +21,16 @@ export class JewelryListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    console.log('jewelry list called');
-
-    /* this.jewelrys = this.jewelryService.getJewelrys(); */
     this.subscription = this.jewelryService.jewelryChanged.subscribe(
       (jewelry: Jewelry[]) => {
-        this.jewelrys = jewelry;
+        this.jewelry = jewelry;
       }
     );
-    this.jewelrys = this.jewelryService.getJewelrys();
+    this.jewelry = this.jewelryService.getJewelrys();
+  }
+
+  onNewJewelry() {
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 
   ngOnDestroy() {
