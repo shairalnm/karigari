@@ -5,6 +5,7 @@ import { map, tap } from 'rxjs/operators';
 import { Jewelry } from '../jewelry/jewelry.model';
 import { JewelryService } from '../jewelry/jewelry.service';
 import { ContactService } from '../contact/contact.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -17,15 +18,13 @@ export class DataStorageService {
   storeJewelry() {
     const jewelry = this.jewelryService.getJewelrys();
     this.http
-      .put('https://karigari-90b30.firebaseio.com/jewelry.json', jewelry)
-      .subscribe((response) => {
-        console.log(response);
-      });
+      .put(environment.firebaseJewelryDatabaseLink, jewelry)
+      .subscribe((response) => {});
   }
 
   fetchJewelry() {
     return this.http
-      .get<Jewelry[]>('https://karigari-90b30.firebaseio.com/jewelry.json')
+      .get<Jewelry[]>(environment.firebaseJewelryDatabaseLink)
       .pipe(
         map((jewelry) => {
           return jewelry.map((jewelry) => {
@@ -37,16 +36,13 @@ export class DataStorageService {
         }),
         tap((jewelry) => {
           this.jewelryService.setJewelry(jewelry);
-          console.log('fetch jewelry' + jewelry);
         })
       );
   }
   storeContact() {
     const contact = this.contactService.getContact();
     this.http
-      .put('https://karigari-90b30.firebaseio.com/contact.json', contact)
-      .subscribe((response) => {
-        console.log(response);
-      });
+      .put(environment.firebaseContactDatabaseLink, contact)
+      .subscribe((response) => {});
   }
 }

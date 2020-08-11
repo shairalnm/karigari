@@ -1,19 +1,7 @@
 import { Component } from '@angular/core';
 
-import { DataStorageService } from '../shared/data-storage.service';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent {
-  constructor(private dataStorageService: DataStorageService) {}
-
-  onSaveData() {
-    this.dataStorageService.storeJewelry();
-  }
-
-  onFetchData() {
-    this.dataStorageService.fetchJewelry().subscribe();
-  }
-}
+export class HeaderComponent {}

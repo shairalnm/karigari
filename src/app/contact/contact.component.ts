@@ -26,11 +26,8 @@ export class ContactComponent implements OnInit {
     });
   }
   onSubmit() {
-    /* console.log('Contact submitted!!!!'); */
     this.contactService.addContact(this.contactUsForm.value);
     this.dataStorageService.storeContact();
-
-    /*  console.log(this.contactUsForm.value); */
     this.onCancel();
   }
   onCancel() {

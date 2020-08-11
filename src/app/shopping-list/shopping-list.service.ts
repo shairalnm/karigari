@@ -1,16 +1,13 @@
 import { Item } from '../shared/item.model';
 import { Subject } from 'rxjs';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ShoppingListService {
   itemChanged = new Subject<Item[]>();
   startedEditing = new Subject<number>();
-  private item: Item[] = [
-    new Item('Rings', 5),
-    new Item('Piercings', 10),
-  ];
 
+  private item: Item[] = [];
   getItems() {
     return this.item.slice();
   }
@@ -25,9 +22,6 @@ export class ShoppingListService {
   }
 
   addItems(item: Item[]) {
-    // for (let ingredient of ingredients) {
-    //   this.addIngredient(ingredient);
-    // }
     this.item.push(...item);
     this.itemChanged.next(this.item.slice());
   }

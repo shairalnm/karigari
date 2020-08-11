@@ -30,8 +30,6 @@ export class JewelryListComponent implements OnInit {
   }
 
   onNewJewelry() {
-    console.log('new jewelry button clicked');
-
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 

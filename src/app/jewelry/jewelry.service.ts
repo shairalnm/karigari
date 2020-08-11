@@ -3,27 +3,13 @@ import { Subject } from 'rxjs';
 
 import { Jewelry } from './jewelry.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
-import { Item } from "../shared/item.model";
+import { Item } from '../shared/item.model';
 
 @Injectable()
 export class JewelryService {
   jewelryChanged = new Subject<Jewelry[]>();
 
-   private jewelry: Jewelry[] = [
-     new Jewelry(
-       'Ring',
-       'A super-shiny silver ring - just awesome!',
-       'https://www.doamore.com/wp-content/uploads/2017/03/engraved-engagement-ring.jpg',
-       [new Item('Ring', 1), new Item('Necklace', 20)]
-     ),
-     new Jewelry(
-       'Big Ring',
-       'What else you need to say?',
-       'https://www.doamore.com/wp-content/uploads/2017/03/engraved-engagement-ring.jpg',
-       [new Item('Ring', 2), new Item('Nose Ring', 1)]
-     )
-   ];
-  /* private jewelry: Jewelry[] = []; */
+  private jewelry: Jewelry[] = [];
 
   constructor(private slService: ShoppingListService) {}
 

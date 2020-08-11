@@ -13,6 +13,7 @@ export class JewelryEditComponent implements OnInit {
   id: number;
   editMode = false;
   jewelryForm: FormGroup;
+  validationKey = '/^[1-9]+[0-9]*$/';
 
   constructor(
     private route: ActivatedRoute,
@@ -43,7 +44,7 @@ export class JewelryEditComponent implements OnInit {
         name: new FormControl(null, Validators.required),
         amount: new FormControl(null, [
           Validators.required,
-          Validators.pattern(/^[1-9]+[0-9]*$/),
+          Validators.pattern(this.validationKey),
         ]),
       })
     );
@@ -58,7 +59,6 @@ export class JewelryEditComponent implements OnInit {
   }
 
   get controls() {
-    // a getter!
     return (<FormArray>this.jewelryForm.get('item')).controls;
   }
 
@@ -80,7 +80,7 @@ export class JewelryEditComponent implements OnInit {
               name: new FormControl(item.name, Validators.required),
               amount: new FormControl(item.amount, [
                 Validators.required,
-                Validators.pattern(/^[1-9]+[0-9]*$/),
+                Validators.pattern(this.validationKey),
               ]),
             })
           );
